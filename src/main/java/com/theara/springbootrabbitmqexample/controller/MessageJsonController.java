@@ -1,5 +1,6 @@
 package com.theara.springbootrabbitmqexample.controller;
 
+import com.theara.springbootrabbitmqexample.model.dto.MailRequest;
 import com.theara.springbootrabbitmqexample.model.dto.User;
 import com.theara.springbootrabbitmqexample.service.RabbitMQJsonProducer;
 import com.theara.springbootrabbitmqexample.service.RabbitMQProducer;
@@ -19,8 +20,14 @@ public class MessageJsonController {
     private final RabbitMQJsonProducer rabbitMQJsonProducer;
 
     @PostMapping("/publish")
-    private ResponseEntity<String> sendJsonMessage(@RequestBody User user){
+    public ResponseEntity<String> sendJsonMessage(@RequestBody User user){
         rabbitMQJsonProducer.sendJsonMessage(user);
+        return ResponseEntity.ok("Message sent to ADMIN ... ");
+    }
+
+    @PostMapping("/send-mail")
+    public ResponseEntity<String> sendMail(MailRequest mailRequest){
+        rabbitMQJsonProducer.sendMail(mailRequest);
         return ResponseEntity.ok("Message sent to ADMIN ... ");
     }
 }

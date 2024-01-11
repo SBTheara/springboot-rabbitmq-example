@@ -1,5 +1,6 @@
 package com.theara.springbootrabbitmqexample.service;
 
+import com.theara.springbootrabbitmqexample.model.dto.MailRequest;
 import com.theara.springbootrabbitmqexample.model.dto.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,15 @@ public class RabbitMQJsonProducer {
     @Value("${rabbitmq.routing.json.key}")
     private String jsonRoutingKey;
 
+    @Value("${rabbitmq.routing.mail.key}")
+    private String mailRoutingKey;
     public void sendJsonMessage(User user) {
         log.info(String.format("Message send -> %s", user.toString()));
         rabbitTemplate.convertAndSend(exchange, jsonRoutingKey, user);
+    }
+
+    public void sendMail(MailRequest mailRequest) {
+        log.info(String.format("Message send -> %s", mailRequest.toString()));
+        rabbitTemplate.convertAndSend(exchange, mailRoutingKey, mailRequest);
     }
 }

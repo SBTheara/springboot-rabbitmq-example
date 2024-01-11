@@ -1,21 +1,27 @@
-#spring:
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    stream:
-#      username: admin
-#      password: admin
+spring:
+  rabbitmq:
+    host: 10.2.50.165
+    port: 5672
+    username: guest
+    password: guest
 rabbitmq:
   queue:
     name: "test_queue"
     json:
       name: "test_json_queue"
+    mail:
+      name: "mail_queue"
   exchange:
     name: "test_exchange"
   routing:
     key: "test_routing_key"
     json:
       key: "test_routing_json_key"
+    mail:
+      key: "mail_routing_key"
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+server:
+  port: 8090
