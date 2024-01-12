@@ -27,7 +27,10 @@ public class MessageJsonController {
 
     @PostMapping("/send-mail")
     public ResponseEntity<String> sendMail(MailRequest mailRequest){
-        rabbitMQJsonProducer.sendMail(mailRequest);
+        for(int i=0;i<100;i++){
+            rabbitMQJsonProducer.sendMail(mailRequest);
+            log.info("{}",i);
+        }
         return ResponseEntity.ok("Message sent to ADMIN ... ");
     }
 }

@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springdoc.core.annotations.ParameterObject;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ParameterObject
 public class MailRequest {
-    @Parameter(description = "sent mail from", example = "thearaholishit@gmail.com")
-    private String from;
-    @Parameter(description = "sent mail to", example = "thearaholishit@gmail.com")
-    private String to;
-    @Parameter(description = "sent mail cc", example = "thearaholishit@gmail.com")
-    private String[] cc;
-    @Parameter(description = "mail subject")
+    @Parameter(example = "thearaholishit@gmail.com")
+    private Set<String> to;
+    @Parameter(example = "thearaholishit@gmail.com")
+    private Set<String> cc;
+    @Parameter(example = "thearaholishit@gmail.com")
     private String subject;
-    @Parameter(description = "mail body")
     private String body;
+    private String logo;
 }
