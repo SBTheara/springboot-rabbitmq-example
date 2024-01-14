@@ -27,7 +27,7 @@ public class MessageJsonController {
 
     @PostMapping("/send-mail")
     public ResponseEntity<String> sendMail(MailRequest mailRequest){
-        for(int i=0;i<100;i++){
+        for(int i=0;i<10;i++){
             rabbitMQJsonProducer.sendMail(mailRequest);
             log.info("{}",i);
         }

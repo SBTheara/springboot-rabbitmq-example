@@ -14,3 +14,4 @@ public class RabbitMQJsonConsumer {
         log.info(String.format("Receive message from ADMIN is %s", user));
     }
 }
+

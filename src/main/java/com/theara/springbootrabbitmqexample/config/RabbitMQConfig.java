@@ -103,6 +103,7 @@ public class RabbitMQConfig {
         return rabbitTemplate;
     }
 
+
     //ConnectionFactory
     //RabbitTemplate
     //RabbitAdmin

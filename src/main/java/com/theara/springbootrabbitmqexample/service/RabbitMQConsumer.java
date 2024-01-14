@@ -15,4 +15,5 @@ public class RabbitMQConsumer {
     public void consume(String message) {
         LOGGER.info(String.format("Receive message from ADMIN is %s", message));
     }
+
 }
