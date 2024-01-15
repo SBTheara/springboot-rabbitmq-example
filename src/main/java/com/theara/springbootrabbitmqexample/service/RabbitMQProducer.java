@@ -38,12 +38,10 @@ public class RabbitMQProducer {
 
     public void sendMessageWithoutAttachment(MailRequest message) throws JsonProcessingException {
         log.info(String.format("Message send -> %s", message));
-        message.setHasAttachment(false);
         this.producerPrepare(message);
     }
     public void sendMessageWithAttachment(MailRequest message) throws JsonProcessingException {
         log.info(String.format("Message send -> %s", message));
-        message.setHasAttachment(true);
         this.producerPrepare(message);
     }
 

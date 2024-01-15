@@ -38,46 +38,46 @@ public class RabbitMQConfig {
 
     //spring bean for rabbitmq queue
 
-    @Bean
-    public Queue queue() {
-        return new Queue(queue,false);
-    }
-
-    @Bean
-    public Queue jsonQueue() {
-        return new Queue(jsonQueue,false);
-    }
-
-    @Bean
-    public Queue mailQueue() {
-        return new Queue(queue,false);
-    }
-
-    //spring bean for rabbitmq exchange
-    @Bean
-    public TopicExchange exchange() {
-        return new TopicExchange(exchange);
-    }
-
-    //Binding between queue and exchange using routing key
-    @Bean
-    public Binding binding() {
-        return BindingBuilder.bind(queue()).to(exchange()).with(routingKey);
-    }
-
-    @Bean
-    public Binding jsonBinding() {
-        return BindingBuilder.bind(jsonQueue()).to(exchange()).with(jsonRoutingKey);
-    }
-
-    @Bean
-    public Binding mailBinding() {
-        return BindingBuilder.bind(mailQueue()).to(exchange()).with(mailRoutingKey);
-    }
-    @Bean
-    public MessageConverter converter(){
-        return new Jackson2JsonMessageConverter();
-    }
+//    @Bean
+//    public Queue queue() {
+//        return new Queue(queue,false);
+//    }
+//
+//    @Bean
+//    public Queue jsonQueue() {
+//        return new Queue(jsonQueue,false);
+//    }
+//
+//    @Bean
+//    public Queue mailQueue() {
+//        return new Queue(queue,false);
+//    }
+//
+//    //spring bean for rabbitmq exchange
+//    @Bean
+//    public TopicExchange exchange() {
+//        return new TopicExchange(exchange);
+//    }
+//
+//    //Binding between queue and exchange using routing key
+//    @Bean
+//    public Binding binding() {
+//        return BindingBuilder.bind(queue()).to(exchange()).with(routingKey);
+//    }
+//
+//    @Bean
+//    public Binding jsonBinding() {
+//        return BindingBuilder.bind(jsonQueue()).to(exchange()).with(jsonRoutingKey);
+//    }
+//
+//    @Bean
+//    public Binding mailBinding() {
+//        return BindingBuilder.bind(mailQueue()).to(exchange()).with(mailRoutingKey);
+//    }
+//    @Bean
+//    public MessageConverter converter(){
+//        return new Jackson2JsonMessageConverter();
+//    }
 
 //    @Bean
 //    public ConnectionFactory connectionFactory() {
@@ -96,12 +96,12 @@ public class RabbitMQConfig {
 //        return new RabbitAdmin(connectionFactory());
 //    }
 
-    @Bean
-    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(converter());
-        return rabbitTemplate;
-    }
+//    @Bean
+//    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
+//        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+//        rabbitTemplate.setMessageConverter(converter());
+//        return rabbitTemplate;
+//    }
 
 
     //ConnectionFactory
