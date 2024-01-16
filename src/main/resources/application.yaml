@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
-    host: localhost
+    host: 10.2.2.128
     port: 5672
-    username: guest
-    password: guest
+    username: allweb
+    password: allweb
 rabbitmq:
   queue:
     name: "test_queue"
